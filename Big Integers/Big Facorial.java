@@ -1,13 +1,3 @@
-// Big Integer Class in Java | Powerful lot of inbuilt functions
-/*
-Modular Arithmetic
-GCD Calculation
-Base Conversion
-Power Calculation
-Bitwise Operators
-Prime Generation
-*/
-
 /*--------------------Code--------------------*/
 import java.util.Scanner;
 import java.math.BigInteger;
