@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Inclusion Exclusion Principle
+// Inclusion Exclusion Principle - *Counting Problems in these cases*
+//-------------------------------------------------------------------
 
 // |A U B|      = |A| + |B|       - |A ∩ B|
 // |A U B U C|  = |A| + |B| + |C| - |A ∩ B| - |B ∩ C| - |C ∩ A| + |A ∩ B ∩ C|
@@ -42,14 +43,15 @@ void generalizedProblem(int n){
 
     for(int i = 1; i<subsets; i++){ // 0 is not necessary
         ll denominator = 1ll;
-        ll subsets = __builtin_popcount(i);
+        ll setBits = __builtin_popcount(i);
 
         for(int j = 0; j<primes.size(); j++){
             if(i & (1<<j)) denominator*=primes[j];
         }
-        if(subsets&1) ans+=n/denominator;
+        if(setBits&1) ans+=n/denominator;
         else ans-=n/denominator;
     }
+    
     cout << ans << endl;
 
 }
