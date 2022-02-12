@@ -1,3 +1,4 @@
+/*
 FIBONACCI FACTS
 ----------------
 F(N) = F(N-1) + F(N-2)
@@ -30,9 +31,42 @@ How to Compute
 - Matrix Exponentiation                       -> O(k^3 logN) = O(logN)
 - Binet's Formula (works for small values)    -> O(1)
 - Codeforces Hack                             -> O(logN * log log N)
+*/
 
+#include <bits/stdc++.h>
+using namespace std;
 
+typedef long long ll
+const ll mod = 1e9+7; // modulo
+map<ll, ll> F;
+f[0] = f[1] = 1;
 
+ll hack(ll n){
+
+    if(F.count(n)) return F[n];
+    ll k = n/2;
+    if(n%2 == 0){
+        return F[n] = (hack(k)*hack(k) + hack(k-1)*hack(k-1)) % mod;
+    }
+    else{
+        return F[n] = (hack(k)*hack(k+1) + hack(k-1)*hack(k)) % mod;
+    }
+
+}
+
+int main(){
+
+    ll n;
+    cin >> n;
+
+    F[0] = 0;
+    F[1] = 1;
+    cout << hack(n) << endl;
+  
+    return 0;
+}
+
+/*
 Interesting Properties
 -----------------------
 Zackendorf's Theorem: Each positive number can be written in a unique way as sum of one or more
@@ -43,5 +77,7 @@ Zackendorf's Theorem: Each positive number can be written in a unique way as sum
 
 
 Pisano Period: Last 1/2/3/4 digit(s) of fibonacci no. repeat with period of 60/300/1500/15000 respectively.
+*/
+
 
 
